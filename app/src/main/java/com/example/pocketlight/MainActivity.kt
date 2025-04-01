@@ -19,6 +19,15 @@ import androidx.core.content.ContextCompat
 import com.example.pocketlight.ui.theme.PocketLightTheme
 
 class MainActivity : ComponentActivity() {
+    private val requestPermissionLauncher =
+        registerForActivityResult(ActivityResultContracts.RequestPermission()) { isGranted ->
+            if (isGranted) {
+                // Permission granted, proceed with flashlight functionality
+            } else {
+                // Permission denied, inform the user
+            }
+        }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
